@@ -187,6 +187,32 @@ public:
 
 ## Exploits
 ```
-the server not even been on for me to try anything
+
+	* ALL CREDITS TO HINNIE FOR THIS ONE I LOVE YOU *
+VOID SkipLogin()
+{
+	auto tempWorld = WRLD->GetWorld();
+	if (!tempWorld) return;
+
+	auto tempGameInstance = tempWorld->OwningGameInstance;
+	if (!tempGameInstance) return;
+
+	auto tempLocalPlayer = tempGameInstance->LocalPlayers[0];
+	if (!tempLocalPlayer) return;
+
+	auto tempPlayerController = tempLocalPlayer->PlayerController;
+	if (!tempPlayerController) return;
+
+	auto LoginMenuWidget = read<uintptr_t>((uintptr_t)tempPlayerController + 0x590);
+
+	// Class PortalWars.MainMenuPlayerController
+	// UPortalWarsLoginMenuWidget* LoginMenuWidget; 0x590 Size - 0x8
+	return reinterpret_cast<VOID(__fastcall*)(uintptr_t)>(LoginAddress)(LoginMenuWidget);
+}
+	Pattern For Variable LoginAddress -> 48 89 5C 24 ? 48 89 74 24 ? 55 57 41 56 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B F9 4C 8D
+
+
+
+
 ```
 
