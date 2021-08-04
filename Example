@@ -16,4 +16,4 @@ if (!Count) return false;
 		if (Name.find(XorStr("PortalWarsCharacter_BP_C")) != std::string::npos || Name.find(XorStr("PortalWarsBot_BP_C")) != std::string::npos) {
      // START CHEAT WITH THIS ACTOR
     }
-	}
+}
