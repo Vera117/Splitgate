@@ -1,0 +1,19 @@
+
+Count = *(float*)((uintptr_t)World->PersistentLevel + 0xA0)
+if (!Count) return false;
+
+	for (auto i = 0; i < Count; i++) {
+
+		if (!World->PersistentLevel->Actors.IsValidIndex(i)) break;
+
+		AActor* actor = World->PersistentLevel->Actors[i];
+
+		if (!actor || PlayerPawn == actor) continue;
+
+		auto Name = GetObjectName(actor);
+		if (!Name.data()) continue;
+
+		if (Name.find(XorStr("PortalWarsCharacter_BP_C")) != std::string::npos || Name.find(XorStr("PortalWarsBot_BP_C")) != std::string::npos) {
+     // START CHEAT WITH THIS ACTOR
+    }
+	}
